@@ -88,7 +88,7 @@
 //                             const urlPreview =
 //                                 'https://images.unsplash.com/photo-1523395555535-a43123287dbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80';
 //                             final url = Uri.parse(urlPreview);
-//                             final response = await http.get(url);
+//                      ​​​​​      final response = await http.get(url);
 //                             final bytes = response.bodyBytes;
 
 //                             final temp = await getTemporaryDirectory();
@@ -110,6 +110,9 @@
 //   }
 // }
 
+
+
+
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -121,7 +124,6 @@ class ShareToTelegram extends StatefulWidget {
   @override
   State<ShareToTelegram> createState() => _HomePageState();
 }
-
 class _HomePageState extends State<ShareToTelegram> {
   final List<Map<String, dynamic>> data = [
     {'title': 'Cadbury Dairy Milk', 'price': 15, 'qty': 2},
@@ -178,13 +180,12 @@ class _HomePageState extends State<ShareToTelegram> {
                 final url = Uri.parse(urlPreview);
                 final response = await http.get(url);
                 final bytes = response.bodyBytes;
-
                 final temp = await getTemporaryDirectory();
                 final path =
                     '${temp.path}/image.png'; // pdf exstension convert image to pdf
                 File(path).writeAsBytesSync(bytes);
                 // ignore: deprecated_member_use
-                await Share.shareFiles([path], text: 'Hey, Look, so beautiful');
+                await Share.shareFiles([path], text: 'This is Image');
               },
             )),
       ),
